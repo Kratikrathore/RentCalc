@@ -1,0 +1,81 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>RentCalc</title>
+        <script src="https://kit.fontawesome.com/90575c4c87.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="rent">
+        <h2>Rent Calculator</h2>
+<form id="rentForm">
+    <table>
+        <tr><td><label for="houseRent" id="label">House Rent:</label></td>
+            <td><input type="number" id="houseRent" name="houseRent" class="inp" required></td></tr>
+    <tr><td><label for="food" id="label">Food:</label></td>
+    <td><input type="number" id="food" name="food" class="inp" required></td></tr>
+  
+ <tr><td><label for="electricity" id="label">Electricity:</label></td>
+<td><input type="number" id="electricity" name="electricity" class="inp" required></td></tr>
+  
+  <tr><td>  <label for="water" id="label">Water:</label></td>
+<td><input type="number" id="water" name="water" class="inp" required></td></tr>
+
+ <tr><td><label for="internet" id="label">Internet:</label></td>
+<td><input type="number" id="internet" name="internet"  class="inp" required></td></tr>
+  
+  
+<tr><td> <label for="maintenance" id="label">Maintenance:</label></td>
+<td><input type="number" id="maintenance" name="maintenance"  class="inp" required></td></tr>
+  
+ 
+<tr><td><label for="groceries" id="label">Groceries:</label></td>
+    <td><input type="number" id="groceries" name="groceries" class="inp" required></td></tr>
+  
+  
+<tr><td><label for="numPeople" id="label">Number of People:</label></td>
+    <td> <input type="number" id="numPeople" name="numPeople" class="inp" required></td></tr>
+  
+  
+<tr><td>
+    <button type="button"  class="btn" onclick="calculate()"><i class="fa-solid fa-circle-play"></i> Calculate</button></td>
+<td><button type="reset" class="btn"><i class="fa-solid fa-arrows-rotate"></i>  Reset</button></td></tr>
+  
+</form>
+<tr><td><div id="result"></div></td></tr>
+</table>
+
+</div>
+
+<script>
+function calculate() {
+  // Get the values entered by the user
+  var houseRent = parseFloat(document.getElementById("houseRent").value);
+  var food = parseFloat(document.getElementById("food").value);
+  var electricity = parseFloat(document.getElementById("electricity").value);
+  var water = parseFloat(document.getElementById("water").value);
+  var internet = parseFloat(document.getElementById("internet").value);
+  var maintenance = parseFloat(document.getElementById("maintenance").value);
+  var groceries = parseFloat(document.getElementById("groceries").value);
+  var numPeople = parseInt(document.getElementById("numPeople").value);
+  
+ 
+  
+  // Calculate the total expenses
+  var totalExpenses = houseRent + food + electricity + water + internet + maintenance + groceries;
+  
+  // Calculate the rent each person should pay
+  var rentPerPerson = totalExpenses / numPeople;
+  
+  // Display the result on the webpage
+  document.getElementById("result").innerHTML = "Total Expenses: " + totalExpenses.toFixed(2) +" INR" + "<br>Each person should pay: " + rentPerPerson.toFixed(2) +" INR";
+}
+</script>
+
+</body>
+</html>
